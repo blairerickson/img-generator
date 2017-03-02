@@ -49,51 +49,51 @@
 
 
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter hdpe">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box1">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter sprinkle">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box2">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter hdpe">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box3">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box4">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter spray">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box5">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box6">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter spray">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box7">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box8">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter irrigation">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box9">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter hdpe">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box10">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter spray">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box11">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
 
-            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6 filter sprinkle">
+            <div class="gallery_product col-lg-3 col-md-3 col-sm-3 col-xs-6" id="box12">
                 <img src="http://fakeimg.pl/365x365/" class="img-responsive">
             </div>
         </div>
@@ -165,22 +165,23 @@
         var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + SearchTerm + '&limit=12&api_key=dc6zaTOxFJmzC';
 
 
-  $.ajax({
-      url: queryURL,
-      method: 'GET'
-    }).done(function(response) {
-      console.log(response);
-     // console.log(response.images.url);
-      console.log(response.data[0].images.fixed_height.url);
-      console.log(queryURL);
+        $.ajax({
+            url: queryURL,
+            method: 'GET'
+          }).done(function(response) {
+            console.log(response);
+           // console.log(response.images.url);
+            console.log(response.data[0].images.fixed_height.url);
+            console.log(queryURL);
 
-     $("#image-holder").html('<img src="' + response.data[0].images.fixed_height.url + ' " width="600px"> ');
 
-       Hint1 = response.data[1].images.fixed_height.url;
-       Hint2 = response.data[2].images.fixed_height.url;
-       Hint3 = response.data[3].images.fixed_height.url;
-       Hint4 = response.data[4].images.fixed_height.url;
-    });
+              for (var i = 0; i < 13; i++) 
+              {
+                    $('#box'+ i ).html('<img src="' + response.data[i].images.downsized.url + ' " width="100%"> ');
+
+              }
+
+          });
 
 
     });
