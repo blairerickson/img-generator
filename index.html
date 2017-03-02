@@ -158,12 +158,36 @@
 
       $(".name").on("click", function(event) {
         console.log(this);
+        var SearchTerm = ($(this).attr("data-name"));
+        console.log(SearchTerm)
+
+
+        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + SearchTerm + '&limit=12&api_key=dc6zaTOxFJmzC';
+
+
+  $.ajax({
+      url: queryURL,
+      method: 'GET'
+    }).done(function(response) {
+      console.log(response);
+     // console.log(response.images.url);
+      console.log(response.data[0].images.fixed_height.url);
+      console.log(queryURL);
+
+     $("#image-holder").html('<img src="' + response.data[0].images.fixed_height.url + ' " width="600px"> ');
+
+       Hint1 = response.data[1].images.fixed_height.url;
+       Hint2 = response.data[2].images.fixed_height.url;
+       Hint3 = response.data[3].images.fixed_height.url;
+       Hint4 = response.data[4].images.fixed_height.url;
+    });
+
 
     });
 
     </script>
-  </div>
 
+  </div>
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
