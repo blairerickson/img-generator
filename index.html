@@ -106,10 +106,13 @@
 
 
     <script type="text/javascript">
-      // Initial array of movies
+
+
+
+      // Initial array of search terms
       var prebuttons = ["Bill Nye", "Jurassic Park", "Cosmos", "Tesla"];
 
-      // Function for displaying movie data
+      // Function for displaying buttons on top
       function renderButtons() {
 
         // Deleting the movie buttons prior to adding new movie buttons
@@ -123,8 +126,8 @@
           // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
           var a = $("<button>");
           // Adding a class
-          a.addClass("button-name");
-          a.addClass("btn btn-default filter-button");
+          a.addClass("clickbutton");
+          // a.addClass("");
 
 
           
@@ -133,31 +136,33 @@
           // Providing the button's text with a value of the movie at index i
           a.text(prebuttons[i]);
           // Adding the button to the HTML
+
+          console.log(a);
           $("#button-tab").append(a);
         }
       }
 
-      // This function handles events where one button is clicked
+      // This function handles events where add button is clicked
       $("#add-button").on("click", function(event) {
-        // event.preventDefault() prevents the form from trying to submit itself.
-        // We're using a form so that the user can hit enter instead of clicking the button if they want
+
         event.preventDefault();
-        console.log("add button now.");
+
 
         // This line will grab the text from the input box
         var usersearch = $("#button-input").val().trim();
         // The movie from the textbox is then added to our array
         prebuttons.push(usersearch);
 
+        console.log("add button now." + usersearch);
+        console.log(prebuttons);
         // calling renderButtons which handles the processing of our movie array
         renderButtons();
       });
 
-      // Calling the renderButtons function at least once to display the initial list of movies
-      renderButtons();
 
-
-      $(".button-name").on("click", function(event) {
+      // Calls the Giphy API when a button is pressed
+ $(document).on("click", ".clickbutton", function(){
+        console.log("button clicked.");
         console.log(this);
         var SearchTerm = ($(this).attr("data-button-name"));
         console.log(SearchTerm)
@@ -183,9 +188,13 @@
               }
 
           });
+       }); // end 
 
 
-    });
+
+
+      // Calling the renderButtons function at least once to display the initial list of search terms
+      renderButtons();
 
     </script>
 
