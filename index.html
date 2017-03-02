@@ -31,11 +31,11 @@
     <div id="button-tab"></div>
 
     <form id="button-form">
-      <name for="button-input">Add a Giphy Search</name>
+      <button-name for="button-input">Add a Giphy Search</button-name>
       <input type="text" id="button-input"><br>
 
       <!-- Button triggers new movie to be added -->
-      <input id="add-movie" type="submit" value="Add a button">
+      <input id="add-button" type="submit" value="Add a button">
     </form>
 
 
@@ -107,7 +107,7 @@
 
     <script type="text/javascript">
       // Initial array of movies
-      var prebuttons = ["The Matrix", "The Notebook", "Mr. Nobody", "The Lion King"];
+      var prebuttons = ["Bill Nye", "Jurassic Park", "Cosmos", "Tesla"];
 
       // Function for displaying movie data
       function renderButtons() {
@@ -123,13 +123,13 @@
           // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
           var a = $("<button>");
           // Adding a class
-          a.addClass("name");
+          a.addClass("button-name");
           a.addClass("btn btn-default filter-button");
 
 
           
           // Adding a data-attribute with a value of the movie at index i
-          a.attr("data-name", prebuttons[i]);
+          a.attr("data-button-name", prebuttons[i]);
           // Providing the button's text with a value of the movie at index i
           a.text(prebuttons[i]);
           // Adding the button to the HTML
@@ -138,10 +138,11 @@
       }
 
       // This function handles events where one button is clicked
-      $("#add-movie").on("click", function(event) {
+      $("#add-button").on("click", function(event) {
         // event.preventDefault() prevents the form from trying to submit itself.
         // We're using a form so that the user can hit enter instead of clicking the button if they want
         event.preventDefault();
+        console.log("add button now.");
 
         // This line will grab the text from the input box
         var usersearch = $("#button-input").val().trim();
@@ -156,9 +157,9 @@
       renderButtons();
 
 
-      $(".name").on("click", function(event) {
+      $(".button-name").on("click", function(event) {
         console.log(this);
-        var SearchTerm = ($(this).attr("data-name"));
+        var SearchTerm = ($(this).attr("data-button-name"));
         console.log(SearchTerm)
 
 
