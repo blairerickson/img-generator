@@ -209,6 +209,7 @@ margin: 10px;
                            $('#box'+ (i+1) ).attr("data-animate", response.data[i].images.downsized.url);
                            $('#box'+ (i+1) ).attr("data-still", response.data[i].images.downsized_still.url);
                            $('#box'+ (i+1) ).attr("rating", response.data[i].rating);
+                           $('#box'+ (i+1) ).attr("data-state", "still");
                            console.log(response.data[i].rating);
 
                     // console.log($('#box'+ (i+1)).val()); 
