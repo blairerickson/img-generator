@@ -204,7 +204,7 @@ margin: 10px;
 
               for (var i = 0; i < 12; i++) 
               {
-                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " > <br> <h5> Rating:' + response.data[i].rating + '</h5>');
+                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " > <br> <h5> Rating: ' + response.data[i].rating + '</h5>');
                     // $('#box'+ (i+1) ).val = response.data[i].images.downsized.url;
                            $('#box'+ (i+1) ).attr("data-animate", response.data[i].images.downsized.url);
                            $('#box'+ (i+1) ).attr("data-still", response.data[i].images.downsized_still.url);
@@ -239,14 +239,14 @@ margin: 10px;
       if (state === "still") {
         // $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        $(this).html('<img src="' + animated + '">  <br> <h5> Rating:' + rating + '</h5> ');
+        $(this).html('<img src="' + animated + '">  <br> <h5> Rating: ' + rating + '</h5> ');
         console.log(animated + "ANIMATED");
         console.log(rating);
         console.log($(this).attr("data-animate"));
       } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-       $(this).html('<img src="' + stilled + '">  <br> <h5> Rating:' + rating + '</h5> ');
+       $(this).html('<img src="' + stilled + '">  <br> <h5> Rating: ' + rating + '</h5> ');
         console.log("STILL");
       }
     });
