@@ -229,14 +229,14 @@
       if (state === "still") {
         // $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        $(this).html('<img src="' + animated + ' " width="100%">  <br> <h5> Rating:' + rating + '</h5> ');
+        $(this).html('<img src="' + animated + '">  <br> <h5> Rating:' + rating + '</h5> ');
         console.log(animated + "ANIMATED");
         console.log(rating);
         console.log($(this).attr("data-animate"));
       } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-       $(this).html('<img src="' + stilled + ' " width="100%">  <br> <h5> Rating:' + rating + '</h5> ');
+       $(this).html('<img src="' + stilled + '">  <br> <h5> Rating:' + rating + '</h5> ');
         console.log("STILL");
       }
     });
