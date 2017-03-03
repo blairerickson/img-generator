@@ -11,6 +11,16 @@
     input {
       margin: 10px;
     }
+
+
+.gif img 
+{
+
+    max-width: 300px;
+    height: 200px;
+    object-fit: fill;
+    overflow: hidden;
+}
   </style>
 
 
@@ -185,10 +195,11 @@
 
               for (var i = 0; i < 12; i++) 
               {
-                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " width="100%"> <br> <h5> Rating:' + response.data[i].rating + '</h5>');
+                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " > <br> <h5> Rating:' + response.data[i].rating + '</h5>');
                     // $('#box'+ (i+1) ).val = response.data[i].images.downsized.url;
                            $('#box'+ (i+1) ).attr("data-animate", response.data[i].images.downsized.url);
                            $('#box'+ (i+1) ).attr("data-still", response.data[i].images.downsized_still.url);
+                           $('#box'+ (i+1) ).attr("rating", response.data[i].rating);
                            console.log(response.data[i].rating);
 
                     // console.log($('#box'+ (i+1)).val()); 
@@ -210,7 +221,7 @@
       // console.log(state);
       var animated =  $(this).attr("data-animate");
       var stilled =  $(this).attr("data-still");
-
+      var rating = $(this).attr("rating");
       // If the clicked image's state is still, update its src attribute to what its data-animate value is.
       // Then, set the image's data-state to animate
       // Else set src to the data-still value
@@ -218,13 +229,14 @@
       if (state === "still") {
         // $(this).attr("src", $(this).attr("data-animate"));
         $(this).attr("data-state", "animate");
-        $(this).html('<img src="' + animated + ' " width="100%"> ');
+        $(this).html('<img src="' + animated + ' " width="100%">  <br> <h5> Rating:' + rating + '</h5> ');
         console.log(animated + "ANIMATED");
+        console.log(rating);
         console.log($(this).attr("data-animate"));
       } else {
         $(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-       $(this).html('<img src="' + stilled + ' " width="100%"> ');
+       $(this).html('<img src="' + stilled + ' " width="100%">  <br> <h5> Rating:' + rating + '</h5> ');
         console.log("STILL");
       }
     });
