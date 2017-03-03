@@ -20,6 +20,8 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
 </head>
 
 <body>
@@ -183,10 +185,12 @@
 
               for (var i = 0; i < 12; i++) 
               {
-                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " width="100%"> ');
+                    $('#box'+ (i+1) ).html('<img src="' + response.data[i].images.downsized_still.url + ' " width="100%"> <br> <h5> Rating:' + response.data[i].rating + '</h5>');
                     // $('#box'+ (i+1) ).val = response.data[i].images.downsized.url;
                            $('#box'+ (i+1) ).attr("data-animate", response.data[i].images.downsized.url);
                            $('#box'+ (i+1) ).attr("data-still", response.data[i].images.downsized_still.url);
+                           console.log(response.data[i].rating);
+
                     // console.log($('#box'+ (i+1)).val()); 
               }
 
@@ -198,10 +202,12 @@
    $(".gif").on("click", function() {
 
     console.log("Gif clicked");
-   console.log(this);
+    console.log(this);
     console.log($(this).attr("data-state"));
+
+
       var state = $(this).attr("data-state");
-      console.log(state);
+      // console.log(state);
       var animated =  $(this).attr("data-animate");
       var stilled =  $(this).attr("data-still");
 
