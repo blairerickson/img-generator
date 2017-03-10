@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SUMMON STUFF</title>
+<script src="annyang.js"></script>
+</head>
+<body>
+
+
+	<div id="main">
+	LOREM IPSUM
+	</div>
+
+
+<script src="annyang.js"></script>
+<script>
+
+if (annyang) {
+	console.log("VOICE CALLED.");
+  // Let's define our first command. First the text we expect, and then the function it should call
+  var commands = {
+	    'show tps report': function() 
+	    {
+	      $('#tpsreport').animate({bottom: '-100px'});
+	    },
+
+	    'hi': function() 
+	    {
+	    	console.log("CALLED");
+	      alert("HELLO!");
+	    }
+
+
+  };
+
+  // Add our commands to annyang
+  annyang.addCommands(commands);
+
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
+}
+</script>
+
+
+</body>
+</html>
